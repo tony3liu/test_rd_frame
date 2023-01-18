@@ -1,3 +1,4 @@
+# coding: utf-8
 # 浏览器的类型（Chrome, ie, firefox, edge, opera）
 # 浏览器的启动参数（无头化, 最大化, 尺寸化）
 # 浏览器的属性（显示尺寸, 隐式等待, 页面加载, JS执行时间）
@@ -158,4 +159,3 @@ class IE(BROWSER):
             ie.implicitly_wait(self.IMP_TIME)
             return ie
         return None
-
