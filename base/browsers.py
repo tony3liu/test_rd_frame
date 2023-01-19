@@ -25,7 +25,7 @@ class OptionsTypeError(Exception):
 
 class BROWSER:
     # 浏览器驱动路径
-    CHROME_DRIVER_PATH = ""
+    CHROME_DRIVER_PATH = "../browser_drivers/chromedriver"
     FIREFOX_DRIVER_PATH = ""
     IE_DRIVER_PATH = ""
     EDGE_DRIVER_PATH = ""
@@ -94,13 +94,13 @@ class CHROME(BROWSER):
 
     EXP = {
         'excludeSwitches': ['enable-automation'],  # 不显示"chrome正受到自动化软件控制"的提示
-        'mobileEmulation': {'deviceName': 'iphone 12'}  # 以移动端iPhone 12显示web，一般不加
+        # 'mobileEmulation': {'deviceName': 'iphone 12'}  # 以移动端iPhone 12显示web，一般不加
     }
 
     @property
     def options(self):
         if self.OPTION_MARK:
-            # 这里特别注意，是_option()，括号()一定要有，不然语法报错;所有类的构造函数中的参数对象，引用时都要()
+            # 这里特别注意，self._option是Chrome的Option类，这个方法里面要配置chrome，所以先获取Option实例，然后调用Option实例的方法来配置chrome
             chrome_options = self._option()
             # 将定义的启动参数加入Chrome浏览器启动参数中
             chrome_options.add_argument(self.START_MAX)
@@ -123,7 +123,7 @@ class CHROME(BROWSER):
             # chrome.set_window_size(*self.WIN_SIZE)  # 一般可以不用设置这个窗口大小
             chrome.set_page_load_timeout(self.PAGE_LOAD_TIME)
             chrome.set_script_timeout(self.SCRIPT_TIME_OUT)
-            return chrome
+            return chrome  # 将封装改造好的浏览器对象返回出来，供封装页面时直接调用
         return None  # 如果开关为False，就会返回None
 
 
