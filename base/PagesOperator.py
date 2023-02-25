@@ -76,4 +76,4 @@ class TestCase(PagesOperator):
 
 # debug
 if __name__ == "__main__":
-    pytest.main('./pages')
+    pytest.main('./PagesOperator.py')

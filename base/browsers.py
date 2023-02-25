@@ -88,7 +88,7 @@ class CHROME(BROWSER):
 
     SCRIPT_TIME_OUT = 30
 
-    WIN_SIZE = (1920*900)
+    WIN_SIZE = (1920, 900)
 
     START_MAX = '--start-maximized'
 
@@ -104,7 +104,7 @@ class CHROME(BROWSER):
             chrome_options = self._option()
             # 将定义的启动参数加入Chrome浏览器启动参数中
             chrome_options.add_argument(self.START_MAX)
-            # 清理缓存要调用转悠的ensure_clean_session方法
+            # 清理缓存要调用专用的ensure_clean_session方法
             chrome_options.ensure_clean_session = self.CLEAN_SESSION
             # 将EXP中的键值对参数加入Chrome浏览器启动参数中
             for k, v in self.EXP.items():
