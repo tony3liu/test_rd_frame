@@ -69,7 +69,8 @@ class MainPage(CommonLoginPage):
             'search_input_bug_id': ('id', 'searchInput'),
             'search_go_button': ('id', 'searchGo'),
             'user_name': ('xpath', ''),
-            'bug_label': ('xpath', '')
+            'bug_label': ('xpath', ''),
+            'login_out_button': ('xpath', '//a[text()=="退出"]')
         }
     )
 
@@ -77,3 +78,7 @@ class MainPage(CommonLoginPage):
     def search_bug(self, bug_id: str = '1359'):
         self.search_input_bug_id.sendkeys(bug_id)
         self.search_go_button.click()
+
+    def login_out(self):
+        self.user_name.click()
+        self.login_out_button.click()

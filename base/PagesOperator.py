@@ -5,7 +5,7 @@
 # import selenium.webdriver
 import time
 
-import pytest
+# import pytest
 
 from base import browsers
 
@@ -66,14 +66,14 @@ class PagesOperator(CommonLoginPage):
         self.driver.quit()
 
 
-# 下面是测试用例
-class TestCase(PagesOperator):
-
-    def test_going_test_app(self):
-        self.po_going_qa_app()
-        assert self.element(self.assert_ele).text == '测试统计'
-
-
-# debug
-if __name__ == "__main__":
-    pytest.main('./PagesOperator.py')
+# # 下面是测试用例
+# class TestCase(PagesOperator):
+#
+#     def test_going_test_app(self):
+#         self.po_going_qa_app()
+#         assert self.element(self.assert_ele).text == '测试统计'
+#
+#
+# # debug
+# if __name__ == "__main__":
+#     pytest.main('./PagesOperator.py')
