@@ -45,7 +45,6 @@ class TestSearch(unittest.TestCase, MainPage):
     #     sleep(1)
     #     self.driver.quit()
 
-
 """==========================================================================="""
 # 用subTest进行参数化，比较不好用，要在测试用例中循环测试数据
 # 测试用例在subTest()方法内执行。很初级的用法，好处是不用额外写固定的parametrized()方法
