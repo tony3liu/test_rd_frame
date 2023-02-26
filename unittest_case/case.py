@@ -67,7 +67,6 @@ class TestSearchSubTest(unittest.TestCase, MainPage):
                 # 断言成功就OK，断言失败就截图
                 assert self.user_name.text == d['realname'], \
                     self.driver.save_screenshot('./screenshot')
-
                 self.login_out()
                 sleep(1)
                 self.driver.quit()
