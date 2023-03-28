@@ -32,6 +32,13 @@ class Page:
         by, val = self.locators[loc]
         return self.driver.find_element(by, val)
 
+    @classmethod
+    def cls_element(cls, loc):
+        if loc not in cls.locators.keys():
+            raise Exception
+        by, val = cls.locators[loc]
+        return cls.driver.find_element(by, val)
+
 
 # 创建公用页面（登录）
 class CommonLoginPage(Page):
@@ -58,6 +65,16 @@ class CommonLoginPage(Page):
         self.username.sendkeys(username)
         self.password.sendkeys(password)
         self.submit_button.click()
+
+    @classmethod
+    def cls_get(cls):
+        cls.driver.get(cls.url)
+
+    @classmethod
+    def cls_login(cls, username: str = 'liutao', password: str = 'smAI2021'):
+        cls.cls_element('username').sendkeys(username)
+        cls.cls_element('password').sendkeys(password)
+        cls.cls_element('submit_button').click()
 
 
 # 创建具体的业务页面
