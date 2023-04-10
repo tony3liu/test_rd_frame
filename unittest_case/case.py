@@ -29,7 +29,7 @@ class TestSearch(unittest.TestCase, MainPage):
         self.bugid = bugid
 
     @classmethod
-    def setUpClass(cls) -> None:  # 测试类的前置方法，在整个测试类执行前被调用，类方法中只能调用类方法，所以里面要用到的方法都要再写一遍类方法
+    def setUpClass(cls) -> None:  # 测试类的前置方法，都要写成类方法，在整个测试类执行前被调用，类方法中只能调用其他的类方法，所以里面要用到的方法都要再写一遍类方法
         cls.cls_get()
         cls.cls_login()
 

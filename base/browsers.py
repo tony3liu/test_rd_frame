@@ -4,6 +4,7 @@
 # 浏览器的属性（显示尺寸, 隐式等待, 页面加载, JS执行时间）
 from typing import Type, Union
 from selenium.webdriver import *
+from setting import *
 
 
 # 定义异常类，供异常处理使用
@@ -25,20 +26,20 @@ class OptionsTypeError(Exception):
 
 class BROWSER:
     # 浏览器驱动路径
-    CHROME_DRIVER_PATH = "../browser_drivers/chromedriver"
+    CHROME_DRIVER_PATH = CHROME_DRIVER_PATH
     FIREFOX_DRIVER_PATH = ""
     IE_DRIVER_PATH = ""
     EDGE_DRIVER_PATH = ""
     # 默认窗口尺寸
-    WIN_SIZE = (1024, 768)
+    WIN_SIZE = WIN_SIZE
     # 默认隐式等待时间
-    IMP_TIME = 30
+    IMP_TIME = IMP_TIME
     # 默认页面加载时间
-    PAGE_LOAD_TIME = 20
+    PAGE_LOAD_TIME = PAGE_LOAD_TIME
     # 默认JS异步执行时间
-    SCRIPT_TIME_OUT = 20
+    SCRIPT_TIME_OUT = SCRIPT_TIME_OUT
     # 默认使用无头浏览器
-    HEADLESS = True
+    HEADLESS = HEADLESS
 
     def __init__(self, browser_type: Type[Union[Firefox, Chrome, Ie, Edge]] = Chrome,
                  option_type: Type[Union[FirefoxOptions, ChromeOptions, IeOptions]] = ChromeOptions,
@@ -74,9 +75,9 @@ class BROWSER:
 
 
 class CHROME(BROWSER):
-    OPTION_MARK = True  # 开关: 用于控制options方法的执行结果
+    OPTION_MARK = OPTION_MARK  # 开关: 用于控制options方法的执行结果
 
-    BROWSER_MARK = True  # 开关: 用于控制browsers方法的执行结果
+    BROWSER_MARK = BROWSER_MARK  # 开关: 用于控制browsers方法的执行结果
 
     HEADLESS = False
 
@@ -90,12 +91,9 @@ class CHROME(BROWSER):
 
     WIN_SIZE = (1920, 900)
 
-    START_MAX = '--start-maximized'
+    START_MAX = START_MAX
 
-    EXP = {
-        'excludeSwitches': ['enable-automation'],  # 不显示"chrome正受到自动化软件控制"的提示
-        # 'mobileEmulation': {'deviceName': 'iphone 12'}  # 以移动端iPhone 12显示web，一般不加
-    }
+    EXP = EXP
 
     @property
     def options(self):

@@ -4,10 +4,9 @@
 # 基于页面调用实现的两种方式
 # import selenium.webdriver
 import time
-
 # import pytest
-
 from base import browsers
+from setting import *
 
 
 class Page:
@@ -32,7 +31,7 @@ class Page:
 
 
 class CommonLoginPage(Page):
-    url = "https://zentao.supremind.info/biz/user-login-L2Jpei9pbmRleC5odG1s.html"
+    url = PROJECT_ZENTAO_URL
     driver = browsers.CHROME().browsers  # 直接使用封装好的浏览器对象
     username = ('id', 'account')
     password = ('name', 'password')
